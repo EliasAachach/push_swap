@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 15:56:10 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/10 16:09:50 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/09/10 16:20:04 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	dup_check( char **list, char *nbr, int imax)
 
 	i = 1;
 	int_nbr = ft_atoi(nbr);
-	while (i > imax)
+	while (i < imax)
 	{
 		if (int_nbr == ft_atoi(list[i]))
 			return (1);
@@ -53,10 +53,7 @@ void	check_args(int argc, char **argv)
 	{
 		check_int(argv[i]);
 		if (dup_check(argv, argv[i], i) == 1)
-		{
-		write(1, "oui\n", 4);
 			error_prog(0);
-		}
 		i++;
 	}
 	
