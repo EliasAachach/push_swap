@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils2.c                                           :+:      :+:    :+:   */
+/*   cases.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/10 15:44:25 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/14 16:48:01 by elaachac         ###   ########.fr       */
+/*   Created: 2021/09/14 16:34:03 by elaachac          #+#    #+#             */
+/*   Updated: 2021/09/14 16:36:31 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap.c"
 
-int	ft_strlen(char *s)
+
+void	case_three(t_stack *stack)
 {
-	int i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	
 }
 
-void	set_stacks(int argc, char **argv, t_stack *stack)
+void	choose_case(t_stack *stack)
 {
-	int i;
-
-	i = 1;
-	stack->a = (int *)malloc(sizeof(int) * argc - 1);
-	stack->b = (int *)malloc(sizeof(int) * argc - 1);
-	stack->a[argc - 1] = '\0';
-	stack->b[argc - 1] = '\0';
-	while (argv[i])
+	if (stack->index_max_a <= 3)
 	{
-		stack->a[i - 1] = ft_atoi(argv[i]);
-		i++;
+		case_three(stack);
+	}
+	else if (stack->index_max_a <= 5)
+	{
+		write(1, "5\n", 2);
+		//CASE 5
+		// case_five(stack);
+	}
+	if (stack->index_max_a <= 100)
+	{
+		write(1, "100\n", 3);
+		//CASE 100
+		// case_hundred(stack);
 	}
 }

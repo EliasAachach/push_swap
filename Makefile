@@ -6,7 +6,7 @@
 #    By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 12:36:15 by elaachac          #+#    #+#              #
-#    Updated: 2021/09/10 15:46:17 by elaachac         ###   ########.fr        #
+#    Updated: 2021/09/14 15:35:34 by elaachac         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ INC_PATH = ./includes/
 vpath %.c srcs/utils
 
 FILES =	./srcs/push_swap\
+		./srcs/checkers\
 		./srcs/utils/utils\
 		./srcs/utils/utils2\
 
