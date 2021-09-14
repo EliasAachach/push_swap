@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 15:56:10 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/14 18:05:18 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/09/14 18:06:11 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(int argc, char **argv)
 	init(argc, argv, &stack);
 	if (check_sort(stack.a) == 0)
 	{
-		//args deja triés
+		// args deja triés
 		write(1, "done\n", 5);
 		return (0);
 	}
