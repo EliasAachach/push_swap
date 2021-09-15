@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 15:44:25 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/14 16:48:01 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/09/15 15:12:21 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ int	ft_strlen(char *s)
 	while (s[i])
 		i++;
 	return (i);
+}
+
+void	ft_putstr(char *str)
+{
+	write (1, str, ft_strlen(str));
 }
 
 void	set_stacks(int argc, char **argv, t_stack *stack)
