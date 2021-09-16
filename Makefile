@@ -6,7 +6,7 @@
 #    By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 12:36:15 by elaachac          #+#    #+#              #
-#    Updated: 2021/09/14 15:35:34 by elaachac         ###   ########.fr        #
+#    Updated: 2021/09/16 11:37:49 by elaachac         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,13 @@ vpath %.c srcs/utils
 
 FILES =	./srcs/push_swap\
 		./srcs/checkers\
+		./srcs/cases\
 		./srcs/utils/utils\
 		./srcs/utils/utils2\
+		./srcs/moves/push\
+		./srcs/moves/swap\
+		./srcs/moves/rotate\
+		./srcs/moves/reverse\
 
 
 SRCS = $(addsuffix .c, $(FILES))

@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 13:09:22 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/15 17:21:54 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/09/16 11:51:08 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define RRR 2
 
 #include <stdlib.h>
+#include <stdio.h>
 #include <unistd.h>
 typedef	struct s_stack
 {
@@ -51,4 +52,11 @@ void	set_stacks(int argc, char **argv, t_stack *stack);
 void	choose_case(t_stack *stack);
 void	ft_atoi_check(char *str);
 void	ft_putstr(char *str);
+void	rotate(t_stack *stack, int move);
+void	reverse(t_stack *stack, int move);
+void	push(t_stack *stack, int move);
+void	swap(t_stack *stack, int move);
+void	choose_case(t_stack *stack);
+void	case_three(t_stack *stack);
+
 #endif

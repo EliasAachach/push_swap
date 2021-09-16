@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 15:18:57 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/15 16:36:50 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/09/16 12:07:39 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,21 @@ void	swap(t_stack *stack, int move)
 	if ((move == SA || move == SS) && stack->sub_index_a\
 		<= stack->index_max_a - 1)
 	{
-		tmp = stack->a[0 + stack->sub_index_a];
-		stack->a[0 + stack->sub_index_a] = stack->a[1 + stack->sub_index_a];
-		stack->a[1 + stack->sub_index_b] = tmp;
+		tmp = stack->a[stack->sub_index_a];
+		stack->a[stack->sub_index_a] = stack->a[1 + stack->sub_index_a];
+		stack->a[1 + stack->sub_index_a] = tmp;
 		if (move != SS)
-			ft_putchar("sa\n");
+			ft_putstr("sa\n");
 	}
 	if ((move == SB || move == SS) &&\
 		stack->sub_index_b <= stack->index_max_b - 1)
 	{
-		tmp = stack->b[0 + stack->sub_index_b];
-		stack->b[0 + stack->sub_index_b] = stack->b[1 + stack->sub_index_b];
+		tmp = stack->b[stack->sub_index_b];
+		stack->b[stack->sub_index_b] = stack->b[1 + stack->sub_index_b];
 		stack->b[1 + stack->sub_index_b] = tmp;
 		if (move != SS)
-			ft_putchar("sb\n");
+			ft_putstr("sb\n");
 	}
 	if (move == SS)
-		ft_putchar("ss\n");
+		ft_putstr("ss\n");
 }

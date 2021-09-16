@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 12:10:09 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/10 15:43:47 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/09/16 15:13:53 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_atoi_check(char *str)
 {
 	unsigned int	i;
 	int				neg;
-	unsigned int	nb;
+	long long int	nb;
 
 	i = 0;
 	nb = 0;

@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 16:37:15 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/15 17:59:52 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/09/16 12:33:58 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ void	reverse_end(t_stack *stack, int move)
 	tmp = 0;
 	if (move == RRB || move == RRR)
 	{
-		tmp == stack->b[stack->sub_index_b];
-		i = stack->sub_index_b;
-		while ((0 + i) > stack->index_max_b)
+		tmp = stack->b[stack->index_max_b];
+		i = stack->index_max_b;
+		while (i > stack->sub_index_b)
 		{
-			stack->b[0 + i] = stack->b[0 + i + 1];
-			i++;
+			stack->b[i] = stack->b[i - 1];
+			i--;
 		}
 		if (i == stack->index_max_b)
 			stack->b[0 + stack->sub_index_b] = tmp;
@@ -44,15 +44,15 @@ void	reverse(t_stack *stack, int move)
 	tmp = 0;
 	if (move == RRA || move == RRR)
 	{
-		tmp == stack->a[stack->index_max_a];
-		i = stack->sub_index_a;
-		while ((0 + i) > stack->index_max_a)
+		tmp = stack->a[stack->index_max_a];
+		i = stack->index_max_a;
+		while (i > stack->sub_index_a)
 		{
-			stack->a[0 + i] = stack->a[0 + i + 1];
-			i++;
+			stack->a[i] = stack->a[i - 1];
+			i--;
 		}
-		if (i == stack->index_max_a)
-			stack->a[0 + stack->sub_index_a] = tmp;
+		if (i == stack->sub_index_a)
+			stack->a[stack->sub_index_a] = tmp;
 		if (move != RRR)
 			ft_putstr("rra\n");
 	}
