@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 16:54:17 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/15 15:17:21 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/09/16 17:51:35 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,17 @@ void	push(t_stack *stack, int move)
 	{
 		if (stack->sub_index_a > 0)
 			stack->sub_index_a--;
-		stack->a[0 + stack->sub_index_a] = stack->b[0 + stack->sub_index_b];
+		stack->a[stack->sub_index_a] = stack->b[stack->sub_index_b];
 		stack->sub_index_b--;
 		ft_putstr("pa\n");
 	}
-	if (move == PB && stack->a[stack->index_max_a - stack->sub_index_a] != '\0')
+	if (move == PB && stack->a[stack->sub_index_a] != '\0')
 	{
 		if (stack->sub_index_b > 0)
 			stack->sub_index_b--;
-		stack->b[0 + stack->sub_index_b] = stack->a[0 + stack->sub_index_a];
-		stack->sub_index_a--;
+			printf("sub_index:%d:\n", stack->sub_index_b);
+		stack->b[stack->sub_index_b] = stack->a[stack->sub_index_a];
+		stack->sub_index_a++;
 		ft_putstr("pb\n");
 	}
 }

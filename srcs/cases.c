@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/16 11:44:20 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/16 15:10:12 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/09/16 17:48:00 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,7 @@ int	wich_case(t_stack *stack)
 void	case_three(t_stack *stack)
 {
 	if (wich_case(stack) == 1)
-	{
 		swap(stack, SA);
-		return ;
-	}
 	if (wich_case(stack) == 2)
 	{
 		swap(stack, SA);
@@ -45,10 +42,7 @@ void	case_three(t_stack *stack)
 		return ;
 	}
 	if (wich_case(stack) == 3)
-	{
 		rotate(stack, RA);
-		return ;
-	}
 	if (wich_case(stack) == 4)
 	{
 		swap(stack, SA);
@@ -56,25 +50,30 @@ void	case_three(t_stack *stack)
 		return ;
 	}
 	if (wich_case(stack) == 5)
-	{
 		reverse(stack, RRA);
-		return ;
-	}
+}
+
+void	case_five(t_stack *stack)
+{
+	push(stack, PB);
+	push(stack, PB);
+	case_three(stack);
 }
 
 void	choose_case(t_stack *stack)
 {
-	if (stack->index_max_a <= 3)
+	if (stack->index_max_a <= 2)
 	{
+		printf("[%d]\n", stack->index_max_a);
 		case_three(stack);
 	}
-	else if (stack->index_max_a <= 5)
+	else if (stack->index_max_a <= 4)
 	{
 		write(1, "5\n", 2);
 		//CASE 5
-		// case_five(stack);
+		case_five(stack);
 	}
-	else if (stack->index_max_a <= 100)
+	else if (stack->index_max_a <= 99)
 	{
 		write(1, "100\n", 4);
 		//CASE 100
