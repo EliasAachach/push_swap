@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 13:09:22 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/16 11:51:08 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/09/17 16:43:55 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,9 @@ int		ft_isdigit(int c);
 int		ft_atoi(const char *str);
 int		ft_strlen(char *s);
 int		check_sort(int *stack);
+int		wich_pos(t_stack *stack, int num);
+int		wich_case(t_stack *stack);
+void	five_move(t_stack *stack, int pos);
 void	check_args(int argc, char **argv);
 void	set_stacks(int argc, char **argv, t_stack *stack);
 void	choose_case(t_stack *stack);

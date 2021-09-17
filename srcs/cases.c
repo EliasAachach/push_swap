@@ -6,70 +6,79 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/16 11:44:20 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/16 17:48:00 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/09/17 18:00:26 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-int	wich_case(t_stack *stack)
-{
-	if ((stack->a[0] > stack->a[1] && stack->a[0] < stack->a[2]))
-		return (1);
-	if ((stack->a[0] > stack->a[1] && stack->a[0] > stack->a[2]) &&\
-		(stack->a[1] > stack->a[2]))
-		return (2);
-	if ((stack->a[0] > stack->a[1] && stack->a[0] > stack->a[2]) &&\
-		(stack->a[1] < stack->a[2]))
-		return (3);
-	if ((stack->a[0] < stack->a[1] && stack->a[0] < stack->a[2]))
-		return (4);
-	if ((stack->a[0] < stack->a[1] && stack->a[0] > stack->a[2]))
-		return (5);
-	
-	return (0);
-}
-
 void	case_three(t_stack *stack)
 {
 	if (wich_case(stack) == 1)
 		swap(stack, SA);
-	if (wich_case(stack) == 2)
+	else if (wich_case(stack) == 2)
 	{
 		swap(stack, SA);
 		reverse(stack, RRA);
 		return ;
 	}
-	if (wich_case(stack) == 3)
+	else if (wich_case(stack) == 3)
 		rotate(stack, RA);
-	if (wich_case(stack) == 4)
+	else if (wich_case(stack) == 4)
 	{
 		swap(stack, SA);
 		rotate(stack, RA);
 		return ;
 	}
-	if (wich_case(stack) == 5)
+	else if (wich_case(stack) == 5)
 		reverse(stack, RRA);
+}
+
+void	five_move(t_stack *stack, int pos)
+{
+	int rev;
+
+	if (pos > stack->index_max_a / 2)
+	{
+		rev = 1;
+		pos = stack->index_max_a - pos;
+	}
+	else
+		rev = 0;
+	while(pos > 0)
+	{
+		if (rev == 1)
+			reverse(stack, RRA);
+		else
+			rotate(stack, RA);
+		pos--;
+	}
+	push(stack, PA);
 }
 
 void	case_five(t_stack *stack)
 {
-	push(stack, PB);
-	push(stack, PB);
+	int pos;
+
+	while (stack->sub_index_a != 2)
+		push(stack, PB);
 	case_three(stack);
+	while (stack->sub_index_b != stack->index_max_b + 1)
+	{
+		pos = wich_pos(stack, stack->b[stack->sub_index_b]);
+		five_move(stack, pos);
+	}
 }
 
 void	choose_case(t_stack *stack)
 {
 	if (stack->index_max_a <= 2)
 	{
-		printf("[%d]\n", stack->index_max_a);
 		case_three(stack);
 	}
 	else if (stack->index_max_a <= 4)
 	{
-		write(1, "5\n", 2);
+		// write(1, "5\n", 2);
 		//CASE 5
 		case_five(stack);
 	}

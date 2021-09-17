@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 15:56:10 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/16 17:52:04 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/09/17 17:44:08 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main(int argc, char **argv)
 		int i = 0;
 		while (stack.a[i])
 		{
-			printf("|%d|\n", stack.a[i]);
+			printf("{%d}\n", stack.a[i]);
 			i++;
 		}
 			printf(".%d.\n", stack.b[0]);
@@ -49,12 +49,12 @@ int	main(int argc, char **argv)
 			printf(".%d.\n", stack.b[2]);
 			printf(".%d.\n", stack.b[3]);
 			printf(".%d.\n", stack.b[4]);
-		int y = 0;
-		while (stack.b[y])
-		{
-			printf(".%d.\n", stack.b[y]);
-			y++;
-		}
+		// int y = 0;
+		// while (stack.b[y])
+		// {
+		// 	printf(".%d.\n", stack.b[y]);
+		// 	y++;
+		// }
 	// system ("leaks push_swap");
 }
 	
