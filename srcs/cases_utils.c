@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 15:31:39 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/17 15:32:17 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/09/19 19:41:10 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,22 @@ int	wich_pos(t_stack *stack, int num)
 
 int	wich_case(t_stack *stack)
 {
-	if ((stack->a[0] > stack->a[1] && stack->a[0] < stack->a[2]))
+	if ((stack->a[stack->sub_index_a] > stack->a[stack->sub_index_a + 1]\
+		&& stack->a[stack->sub_index_a] < stack->a[stack->sub_index_a + 2]))
 		return (1);
-	if ((stack->a[0] > stack->a[1] && stack->a[0] > stack->a[2]) &&\
-		(stack->a[1] > stack->a[2]))
+	if ((stack->a[stack->sub_index_a] > stack->a[stack->sub_index_a + 1]\
+		&& stack->a[stack->sub_index_a] > stack->a[stack->sub_index_a +2]) &&\
+		(stack->a[stack->sub_index_a + 1] > stack->a[stack->sub_index_a + 2]))
 		return (2);
-	if ((stack->a[0] > stack->a[1] && stack->a[0] > stack->a[2]) &&\
-		(stack->a[1] < stack->a[2]))
+	if ((stack->a[stack->sub_index_a] > stack->a[stack->sub_index_a + 1]\
+		&& stack->a[stack->sub_index_a] > stack->a[stack->sub_index_a +2]) &&\
+		(stack->a[stack->sub_index_a + 1] < stack->a[stack->sub_index_a +2]))
 		return (3);
-	if ((stack->a[0] < stack->a[1] && stack->a[0] < stack->a[2]))
+	if ((stack->a[stack->sub_index_a] < stack->a[stack->sub_index_a + 1] &&\
+		stack->a[stack->sub_index_a] < stack->a[stack->sub_index_a + 2]))
 		return (4);
-	if ((stack->a[0] < stack->a[1] && stack->a[0] > stack->a[2]))
+	if ((stack->a[stack->sub_index_a] < stack->a[stack->sub_index_a + 1] &&\
+		stack->a[stack->sub_index_a] > stack->a[stack->sub_index_a + 2]))
 		return (5);
 	
 	return (0);

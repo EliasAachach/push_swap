@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/16 11:44:20 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/17 18:00:26 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/09/19 19:28:11 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,11 @@ void	case_five(t_stack *stack)
 	while (stack->sub_index_a != 2)
 		push(stack, PB);
 	case_three(stack);
+			printf("-%d-\n", stack->a[0]);
+			printf("-%d-\n", stack->a[1]);
+			printf("-%d-\n", stack->a[2]);
+			printf("-%d-\n", stack->a[3]);
+			printf("-%d-\n", stack->a[4]);
 	while (stack->sub_index_b != stack->index_max_b + 1)
 	{
 		pos = wich_pos(stack, stack->b[stack->sub_index_b]);
