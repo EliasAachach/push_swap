@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 12:23:32 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/15 14:29:16 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/09/20 16:47:50 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ int	dup_check( char **list, char *nbr, int imax)
 	return (0);
 }
 
-int	check_sort(int *stack)
+int	check_sort(t_stack *stack)
 {
 	int i;
 
 	i = 1;
-	while(stack[i])
+	while(i <= stack->index_max_a)
 	{
-		if (stack[i] <= stack[i - 1])
+		if (stack->a[i] <= stack->a[i - 1])
 			return (1);
 		i++;
 	}
