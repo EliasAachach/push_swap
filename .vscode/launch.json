@@ -10,9 +10,9 @@
 			"request": "launch",
 			"program": "${workspaceFolder}/push_swap",
 			"args": [
-				"2",
 				"1",
 				"5",
+				"2",
 				"4",
 				"3"
 			],

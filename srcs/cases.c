@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/16 11:44:20 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/20 17:33:29 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/09/21 17:37:01 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,23 +37,31 @@ void	case_three(t_stack *stack)
 void	five_move(t_stack *stack, int pos)
 {
 	int rev;
+	int tmp_sub;
 
-	if (pos > stack->index_max_a / 2)
+	push(stack, PA);
+	tmp_sub = stack->sub_index_a;
+	// if (pos > stack->index_max_a / 2)
+	// {
+	// 	rev = 1;
+	// 	pos = stack->index_max_a - pos;
+	// }
+	// else
+		rev = 0;
+	if (pos == stack->index_max_a)
 	{
-		rev = 1;
-		pos = stack->index_max_a - pos;
+		rotate(stack, RA);
 	}
 	else
-		rev = 0;
-	while(pos > stack->sub_index_a)
 	{
-		if (rev == 1)
-			reverse(stack, RRA);
-		else
-			rotate(stack, RA);
-		pos--;
+		while(pos > tmp_sub)
+		{
+			swap(stack, SA);
+			pos--;
+			stack->sub_index_a++;
+		}
 	}
-	push(stack, PA);
+	stack->sub_index_a = tmp_sub;
 }
 
 void	case_five(t_stack *stack)
@@ -63,20 +71,10 @@ void	case_five(t_stack *stack)
 	while (stack->sub_index_a != 2)
 		push(stack, PB);
 	case_three(stack);
-	printf("STACK A APRES 3 CASES\n{%d}\n", stack->a[0]);
-	printf("{%d}\n", stack->a[1]);
-	printf("{%d}\n", stack->a[2]);
-	printf("{%d}\n", stack->a[3]);
-	printf("{%d}\nFIN A APRES 3 CASES\n", stack->a[4]);
-	while (stack->sub_index_b != stack->index_max_b)
+	while (stack->sub_index_b <= stack->index_max_b)
 	{
 		pos = wich_pos(stack, stack->b[stack->sub_index_b]);
 		five_move(stack, pos);
-			printf("#%d#\n", stack->a[0]);
-			printf("#%d#\n", stack->a[1]);
-			printf("#%d#\n", stack->a[2]);
-			printf("#%d#\n", stack->a[3]);
-			printf("#%d#\n", stack->a[4]);
 	}
 }
 
