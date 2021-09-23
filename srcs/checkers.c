@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 12:23:32 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/20 16:47:50 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/09/23 12:07:30 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	check_sort(t_stack *stack)
 {
 	int i;
 
-	i = 1;
+	i = stack->sub_index_a + 1;
 	while(i <= stack->index_max_a)
 	{
 		if (stack->a[i] <= stack->a[i - 1])
