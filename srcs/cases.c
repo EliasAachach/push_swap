@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/16 11:44:20 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/23 15:40:31 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/09/25 00:07:10 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,15 +88,19 @@ void	case_five(t_stack *stack)
 
 void	choose_case(t_stack *stack)
 {
-	if (stack->index_max_a <= 2)
+	if (stack->index_max_a == 1)
+	{
+		swap(stack, SA);
+	}
+	if (stack->index_max_a == 2)
 	{
 		case_three(stack);
 	}
-	else if (stack->index_max_a <= 4)
+	else if (stack->index_max_a < 99)
 	{
 		case_five(stack);
 	}
-	else if (stack->index_max_a <= 99)
+	else if (stack->index_max_a < 499)
 	{
 		printf("max:%d\n", stack->index_max_a);
 		write(1, "100\n", 4);

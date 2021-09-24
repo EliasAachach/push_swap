@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 15:56:10 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/23 15:40:20 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/09/24 23:49:45 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,5 @@ int	main(int argc, char **argv)
 	printf(".%d.\n", stack.b[2]);
 	printf(".%d.\n", stack.b[3]);
 	printf(".%d.\n", stack.b[4]);
-
 	// system ("leaks push_swap");
 }
