@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 13:09:22 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/20 16:47:14 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/09/28 14:43:33 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,21 @@ typedef	struct s_stack
 	int	sub_index_b;
 }				t_stack;
 
+typedef	struct s_node
+{
+	int				data;
+	int				place;
+	struct s_node	*next;
+	struct s_node	*prev;
+}				t_node;
+
+
+typedef	struct s_list
+{
+	size_t	lenght;
+	t_node	*head;
+	t_node	*tail;
+}				t_list;
 
 int		error_prog(int ret);
 int		ft_strchr(const char *str, char *c);
