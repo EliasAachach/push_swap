@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 15:56:10 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/27 15:36:40 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/09/28 21:28:29 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,32 @@ void	init_stack(int argc, char **argv, t_stack *stack)
 	stack->sub_index_b = argc - 1;
 }
 
+void	init_list(int argc, char **argv, t_list *a, t_list *b)
+{
+	int i;
+
+	i = 1;
+	*a = newlist(argc - 1);
+	*b = newlist(argc - 1);
+	while (argv[i])
+	{
+		add_tail_list(&a)->data = ft_atoi(argv[i]);
+		i++;
+		printf("c ok\n");
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	stack;
+	t_list	a;
+	t_list	b;
+
 	check_args(argc, argv);
-	init_stack(argc, argv, &stack);
+	if (argc > 100)
+		init_list(argc, argv, &a, &b);
+	else
+		init_stack(argc, argv, &stack);
 	if (check_sort(&stack) == 0)
 	{
 		// args deja triés (rendu: il ne se passe rien, donc suppr le write)

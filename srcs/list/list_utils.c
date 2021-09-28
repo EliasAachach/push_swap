@@ -6,13 +6,13 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 14:38:22 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/28 16:19:43 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/09/28 21:29:33 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	newlist(void)
+t_list	*newlist(int len)
 {
 	t_list	*newlist;
 	newlist = (t_list *)malloc(sizeof(*newlist));
@@ -20,8 +20,7 @@ void	newlist(void)
 		return (NULL);
 	if (newlist != NULL)
 	{
-		newlist->lenght = 0;
-		newlist->place = 0;
+		newlist->lenght = len;
 		newlist->head = NULL;
 		newlist->tail = NULL;
 	}
@@ -47,7 +46,7 @@ void	dellist(t_list **list)
 	}
 }
 
-t_node	add_tail_list(t_list **list)
+t_node	*add_tail_list(t_list **list)
 {
 	t_node	*newnode;
 

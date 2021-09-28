@@ -24,4 +24,8 @@ SOURCES		+=                 		\
 		srcs/utils/utils.c        	\
 		srcs/utils/utils2.c       	\
 
+## SRCS/LIST ##
+
+SOURCES		+=						\
+		srcs/list/list_utils.c		\
 
