@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 14:38:22 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/28 21:29:33 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/09/29 15:40:01 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ t_list	*newlist(int len)
 
 void	dellist(t_list **list)
 {
-	t_node	tmp;
-	t_node	del;
+	t_node	*tmp;
+	t_node	*del;
 
 	if (list != NULL)
 	{
@@ -46,31 +46,31 @@ void	dellist(t_list **list)
 	}
 }
 
-t_node	*add_tail_list(t_list **list)
+t_node	*add_tail_list(t_list *list, int data)
 {
 	t_node	*newnode;
 
 	newnode = (t_node *)malloc(sizeof(*newnode));
 	if (!newnode)
 		return (NULL);
-	if ((*list) != NULL)
+	if (list != NULL)
 	{
-		if ((*list)->tail == NULL)
+		if (list->tail == NULL)
 		{
-			(*list)->head = newnode;
-			(*list)->tail = newnode;
-			newnode->prev = (*list)->head;
-			newnode->next = (*list)->head;
+			list->head = newnode;
+			list->tail = newnode;
+			newnode->prev = list->head;
+			newnode->next = list->head;
 		}
 		else
 		{
-			(*list)->tail->next = newnode;
-			(*list)->head = newnode;
-			newnode->prev = (*list)->tail;
-			newnode->next = (*list)->head;
-			(*list)->tail = newnode;
+			list->tail->next = newnode;
+			newnode->next = list->head;
+			newnode->prev = list->tail;
+			list->tail = newnode;
 		}
-		(*list)->lenght++;
+		newnode->data = data;
+		list->lenght++;
 	}
 	return (newnode);
 }

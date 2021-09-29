@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 15:56:10 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/28 21:28:29 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/09/29 17:19:49 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,12 @@ void	init_list(int argc, char **argv, t_list *a, t_list *b)
 	int i;
 
 	i = 1;
-	*a = newlist(argc - 1);
-	*b = newlist(argc - 1);
+	a = newlist(argc - 1);
+	b = newlist(argc - 1);
 	while (argv[i])
 	{
-		add_tail_list(&a)->data = ft_atoi(argv[i]);
+		add_tail_list(a, ft_atoi(argv[i]));
 		i++;
-		printf("c ok\n");
 	}
 }
 
@@ -47,16 +46,31 @@ int	main(int argc, char **argv)
 
 	check_args(argc, argv);
 	if (argc > 100)
-		init_list(argc, argv, &a, &b);
-	else
-		init_stack(argc, argv, &stack);
-	if (check_sort(&stack) == 0)
 	{
-		// args deja triés (rendu: il ne se passe rien, donc suppr le write)
-		write(1, "done\n", 5);
-		return (0);
+		init_list(argc, argv, &a, &b);
+		printf("PREV data:%d\n", a.head->data);
+		printf("a data:%d\n", a.tail->data);
+		printf("NEXT data:%d\n", a.tail->next->data);
 	}
-	choose_case(&stack);
+	else
+	{
+		init_stack(argc, argv, &stack);
+		if (check_sort(&stack) == 0)
+		{
+			// args deja triés (rendu: il ne se passe rien, donc suppr le write)
+			write(1, "done\n", 5);
+			return (0);
+		}
+		choose_case(&stack);
+	}
+	t_node *iterator;
+	iterator = a.head;
+	printf("value:%d\n", a.head->data);
+	while (iterator->next)
+	{
+		printf("value:%d\n", iterator->data);
+		iterator = iterator->next;
+	}
 	printf("STACK A :\n#%d#\n", stack.a[0]);
 	printf("#%d#\n", stack.a[1]);
 	printf("#%d#\n", stack.a[2]);

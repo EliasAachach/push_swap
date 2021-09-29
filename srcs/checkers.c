@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 12:23:32 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/23 12:07:30 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/09/29 13:03:53 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	check_int(char *char_nbr)
 	{
 		if (ft_isdigit(char_nbr[i]) == 0)
 			error_prog(0);
-			i++;
+		i++;
 	}
 }
 
@@ -37,7 +37,7 @@ int	dup_check( char **list, char *nbr, int imax)
 	{
 		if (int_nbr == ft_atoi(list[i]))
 			return (1);
-			i++;
+		i++;
 	}
 	return (0);
 }
