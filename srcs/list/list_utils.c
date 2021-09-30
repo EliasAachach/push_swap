@@ -6,13 +6,13 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 14:38:22 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/29 15:40:01 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/09/30 11:55:16 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*newlist(int len)
+t_list	*newlist(void)
 {
 	t_list	*newlist;
 	newlist = (t_list *)malloc(sizeof(*newlist));
@@ -20,7 +20,7 @@ t_list	*newlist(int len)
 		return (NULL);
 	if (newlist != NULL)
 	{
-		newlist->lenght = len;
+		newlist->lenght = 0;
 		newlist->head = NULL;
 		newlist->tail = NULL;
 	}
@@ -46,31 +46,31 @@ void	dellist(t_list **list)
 	}
 }
 
-t_node	*add_tail_list(t_list *list, int data)
+t_node	*add_tail_list(t_list **list, int data)
 {
 	t_node	*newnode;
 
 	newnode = (t_node *)malloc(sizeof(*newnode));
 	if (!newnode)
 		return (NULL);
-	if (list != NULL)
+	if ((*list) != NULL)
 	{
-		if (list->tail == NULL)
+		if ((*list)->tail == NULL)
 		{
-			list->head = newnode;
-			list->tail = newnode;
-			newnode->prev = list->head;
-			newnode->next = list->head;
+			(*list)->head = newnode;
+			(*list)->tail = newnode;
+			newnode->prev = (*list)->head;
+			newnode->next = (*list)->head;
 		}
 		else
 		{
-			list->tail->next = newnode;
-			newnode->next = list->head;
-			newnode->prev = list->tail;
-			list->tail = newnode;
+			(*list)->tail->next = newnode;
+			newnode->next = (*list)->head;
+			newnode->prev = (*list)->tail;
+			(*list)->tail = newnode;
 		}
 		newnode->data = data;
-		list->lenght++;
+		(*list)->lenght++;
 	}
 	return (newnode);
 }

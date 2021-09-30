@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 15:56:10 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/29 17:19:49 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/09/30 12:11:41 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ void	init_stack(int argc, char **argv, t_stack *stack)
 	stack->sub_index_b = argc - 1;
 }
 
-void	init_list(int argc, char **argv, t_list *a, t_list *b)
+void	init_list(char **argv, t_list **a, t_list **b)
 {
 	int i;
 
 	i = 1;
-	a = newlist(argc - 1);
-	b = newlist(argc - 1);
+	*a = newlist();
+	*b = newlist();
 	while (argv[i])
 	{
 		add_tail_list(a, ft_atoi(argv[i]));
@@ -41,16 +41,18 @@ void	init_list(int argc, char **argv, t_list *a, t_list *b)
 int	main(int argc, char **argv)
 {
 	t_stack	stack;
-	t_list	a;
-	t_list	b;
+	t_list	*a;
+	t_list	*b;
 
+	a = NULL;
+	b = NULL;
 	check_args(argc, argv);
 	if (argc > 100)
 	{
-		init_list(argc, argv, &a, &b);
-		printf("PREV data:%d\n", a.head->data);
-		printf("a data:%d\n", a.tail->data);
-		printf("NEXT data:%d\n", a.tail->next->data);
+		init_list(argv, &a, &b);
+		printf("PREV data:%d\n", a->head->data);
+		printf("a data:%d\n", a->tail->data);
+		printf("NEXT data:%d\n", a->tail->next->data);
 	}
 	else
 	{
@@ -64,8 +66,8 @@ int	main(int argc, char **argv)
 		choose_case(&stack);
 	}
 	t_node *iterator;
-	iterator = a.head;
-	printf("value:%d\n", a.head->data);
+	iterator = a->head;
+	printf("value:%d\n", a->head->data);
 	while (iterator->next)
 	{
 		printf("value:%d\n", iterator->data);
