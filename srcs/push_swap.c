@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 15:56:10 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/30 15:01:40 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/09/30 15:25:40 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	init_list(char **argv, t_list **a, t_list **b)
 	*b = newlist();
 	while (argv[i])
 	{
-		add_tail_list(a, ft_atoi(argv[i]));
+		add_tail_list(a, ft_atoi(argv[i]), 0);
 		i++;
 	}
 }

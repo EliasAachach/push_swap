@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 13:09:22 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/30 11:35:15 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/09/30 15:25:49 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ typedef	struct s_stack
 typedef	struct s_node
 {
 	int				data;
-	int				place;
-	int				place_to_be;
+	int				pos;
+	int				chunk_pos;
 	struct s_node	*next;
 	struct s_node	*prev;
 }				t_node;
@@ -78,7 +78,7 @@ void	swap(t_stack *stack, int move);
 void	choose_case(t_stack *stack);
 void	case_three(t_stack *stack);
 void	dellist(t_list **list);
-t_node	*add_tail_list(t_list **list, int data);
+t_node	*add_tail_list(t_list **list, int data, int chunk);
 t_list	*newlist(void);
 
 #endif

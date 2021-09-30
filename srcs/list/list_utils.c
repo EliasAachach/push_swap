@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 14:38:22 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/30 14:25:34 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/09/30 15:24:46 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,14 @@ void	dellist(t_list **list)
 	}
 }
 
-t_node	*add_tail_list(t_list **list, int data)
+void	init_node(t_node *node, int data, int pos, int chunk)
+{
+	node->data = data;
+	node->chunk_pos = chunk;
+	node->pos = pos;
+}
+
+t_node	*add_tail_list(t_list **list, int data, int chunk)
 {
 	t_node	*newnode;
 
@@ -70,8 +77,8 @@ t_node	*add_tail_list(t_list **list, int data)
 			newnode->prev = (*list)->tail;
 			(*list)->tail = newnode;
 		}
-		newnode->data = data;
 		(*list)->lenght++;
 	}
+	init_node(newnode, data, (*list)->lenght - 1, chunk);
 	return (newnode);
 }
