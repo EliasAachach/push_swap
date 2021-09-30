@@ -21,6 +21,7 @@ SOURCES		+=                   		\
 ## SRCS/LIST ##
 
 SOURCES		+=                   		\
+		srcs/list/lcheckers.c       	\
 		srcs/list/list_utils.c      	\
 
 
@@ -29,4 +30,5 @@ SOURCES		+=                   		\
 SOURCES		+=                   		\
 		srcs/utils/utils.c          	\
 		srcs/utils/utils2.c         	\
+
 

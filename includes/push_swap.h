@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 13:09:22 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/30 15:25:49 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/09/30 16:08:10 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ int		ft_strlen(char *s);
 int		check_sort(t_stack *stack);
 int		wich_pos(t_stack *stack, int num);
 int		wich_case(t_stack *stack);
+int		lcheck_sort(t_list **list);
 void	five_move(t_stack *stack, int pos);
 void	check_args(int argc, char **argv);
 void	set_stacks(int argc, char **argv, t_stack *stack);

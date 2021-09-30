@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 15:56:10 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/30 15:25:40 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/09/30 15:37:11 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,17 @@ int	main(int argc, char **argv)
 	b = NULL;
 	check_args(argc, argv);
 	if (argc > 100)
+	{
 		init_list(argv, &a, &b);
+		if (lcheck_sort(&a) == 0)
+		{
+			// args deja triés (rendu: il ne se passe rien, donc suppr le write)
+			write(1, "done\n", 5);
+			dellist(&a);
+			dellist(&b);
+			return (0);
+		}
+	}
 	else
 	{
 		init_stack(argc, argv, &stack);
