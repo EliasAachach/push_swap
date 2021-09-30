@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 13:09:22 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/30 16:08:10 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/09/30 16:38:59 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
+
 typedef	struct s_stack
 {
 	int	*a;
@@ -49,13 +50,28 @@ typedef	struct s_node
 	struct s_node	*prev;
 }				t_node;
 
-
 typedef	struct s_list
 {
 	size_t	lenght;
 	t_node	*head;
 	t_node	*tail;
 }				t_list;
+
+typedef	struct s_chunks
+{
+	int q1;
+	int q2;
+	int q3;
+	int q4;
+	int q5;
+	int q6;
+	int q7;
+	int q8;
+	int q9;
+	int q10;
+	int q11;
+}				t_chunks;
+
 
 int		error_prog(int ret);
 int		ft_strchr(const char *str, char *c);

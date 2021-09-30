@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 15:56:10 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/30 15:37:11 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/09/30 16:28:46 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int	main(int argc, char **argv)
 			dellist(&b);
 			return (0);
 		}
+		lsort(&a, &b);
 	}
 	else
 	{
