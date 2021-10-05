@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 14:38:22 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/30 15:24:46 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/05 17:13:35 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,42 @@ void	dellist(t_list **list)
 	}
 }
 
-void	init_node(t_node *node, int data, int pos, int chunk)
+void	init_node(t_node *node, int data, int pos)
 {
 	node->data = data;
-	node->chunk_pos = chunk;
 	node->pos = pos;
 }
 
-t_node	*add_tail_list(t_list **list, int data, int chunk)
+t_node	*add_head_list(t_list **list, int data)
+{
+	t_node	*newnode;
+
+	newnode = (t_node *)malloc(sizeof(*newnode));
+	if (!newnode)
+		return (NULL);
+	if ((*list) != NULL)
+	{
+		if ((*list)->tail == NULL)
+		{
+			(*list)->head = newnode;
+			(*list)->tail = newnode;
+			newnode->prev = (*list)->tail;
+			newnode->next = (*list)->tail;
+		}
+		else
+		{
+			(*list)->tail->next = newnode;
+			newnode->next = (*list)->head;
+			newnode->prev = (*list)->tail;
+			(*list)->head = newnode;
+		}
+		(*list)->lenght++;
+	}
+	init_node(newnode, data, (*list)->lenght - 1);
+	return (newnode);
+}
+
+t_node	*add_tail_list(t_list **list, int data)
 {
 	t_node	*newnode;
 
@@ -79,6 +107,6 @@ t_node	*add_tail_list(t_list **list, int data, int chunk)
 		}
 		(*list)->lenght++;
 	}
-	init_node(newnode, data, (*list)->lenght - 1, chunk);
+	init_node(newnode, data, (*list)->lenght - 1);
 	return (newnode);
 }

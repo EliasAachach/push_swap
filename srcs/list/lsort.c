@@ -6,13 +6,37 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 16:27:18 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/01 12:07:14 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/05 16:29:04 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	chunk_500
+// int	find_smallest(t_list ***a, int max_chunk)
+// {
+// 	t_node	*top;
+// 	int		count;
+// 	int		pos_min;
+// 	int		smallest;
+
+// 	top = *(*a)->head;
+// 	smallest = (*a)->head->data;
+// 	pos_min = 0;
+// 	count = 0;
+// 	while (top.next != (*a)->head && count <= max_chunk)
+// 	{
+// 		count++;
+// 		top = top->next;
+// 		if (top.data < smallest)
+// 		{
+// 			smallest = top.data;
+// 			pos_min = count;
+// 		}
+// 	}
+// 	return (pos_min);
+// }
+
+void	chunk_500(t_chunks *chunks, size_t stack_len)
 {
 	chunks->q1 = (stack_len / 11) - 1;
 	chunks->q2 = (stack_len / 10) - 1;
@@ -48,9 +72,27 @@ void	init_chunk(t_chunks *chunks, size_t stack_len)
 
 }
 
+int	find_smallest(t_list **a, int max_chunk)
+{
+	t_node *test;
+
+	test = (**a).head;
+	printf("a avant :{%d}", (**a).head->data);
+	test->data = max_chunk;
+	printf("a apres :{%d}", (**a).head->data);
+	return (0);
+}
+
 void	lsort(t_list **a, t_list **b)
 {
-	t_chunks chunks;
+	t_chunks	chunks;
+	// t_node test;
 
+	// test = *(*a)->head;
+	// printf("a avant :{%d}", (*a)->head->data);
+	// test.data = 12;
+	// printf("a apres :{%d}", (*a)->head->data);
+	(*b)->lenght = (*b)->lenght;
 	init_chunk(&chunks, (*a)->lenght);
+	find_smallest(a, chunks.q1);
 }

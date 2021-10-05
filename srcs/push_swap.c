@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 15:56:10 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/30 16:28:46 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/05 16:27:52 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	init_list(char **argv, t_list **a, t_list **b)
 	*b = newlist();
 	while (argv[i])
 	{
-		add_tail_list(a, ft_atoi(argv[i]), 0);
+		add_tail_list(a, ft_atoi(argv[i]));
 		i++;
 	}
 }
@@ -81,8 +81,8 @@ int	main(int argc, char **argv)
 		// 	iterator = iterator->next;
 		// 	i++;
 		// }
-	dellist(&a);
-	dellist(&b);
+	// dellist(&a);
+	// dellist(&b);
 	//			AFFICHER LES STACKS EN INT*
 	// printf("STACK A :\n#%d#\n", stack.a[0]);
 	// printf("#%d#\n", stack.a[1]);
