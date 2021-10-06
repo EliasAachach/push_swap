@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 14:38:22 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/06 15:55:26 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/06 17:54:15 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ t_node	*add_tail_list(t_list **list, int data)
 		}
 		else
 		{
+			(*list)->head->prev = newnode;
 			(*list)->tail->next = newnode;
 			newnode->next = (*list)->head;
 			newnode->prev = (*list)->tail;
