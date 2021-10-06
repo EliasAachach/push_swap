@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 13:09:22 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/05 17:25:46 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/06 14:15:39 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef	struct s_stack
 typedef	struct s_node
 {
 	int				data;
-	int				pos;
+	int				chunk_pos;
 	struct s_node	*next;
 	struct s_node	*prev;
 }				t_node;
