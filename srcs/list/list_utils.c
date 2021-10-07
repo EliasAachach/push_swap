@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 14:38:22 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/07 14:29:21 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/07 17:59:45 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,9 @@ void	dellist(t_list **list)
 	}
 }
 
-void	init_node(t_node *node, int data, int pos)
+void	init_node(t_node *node, int data)
 {
 	node->data = data;
-	node->pos = pos;
 	node->chunk_pos = -1;
 }
 
@@ -72,14 +71,15 @@ t_node	*add_head_list(t_list **list, int data)
 		}
 		else
 		{
+			(*list)->head->prev = newnode;
 			(*list)->tail->next = newnode;
 			newnode->next = (*list)->head;
 			newnode->prev = (*list)->tail;
 			(*list)->head = newnode;
 		}
+		(*list)->lenght++;
 	}
-	init_node(newnode, data, (*list)->lenght);
-	(*list)->lenght++;
+	init_node(newnode, data);
 	return (newnode);
 }
 
@@ -107,8 +107,8 @@ t_node	*add_tail_list(t_list **list, int data)
 			newnode->prev = (*list)->tail;
 			(*list)->tail = newnode;
 		}
+		(*list)->lenght++;
 	}
-	init_node(newnode, data, (*list)->lenght);
-	(*list)->lenght++;
+	init_node(newnode, data);
 	return (newnode);
 }
