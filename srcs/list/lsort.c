@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 16:27:18 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/06 18:05:22 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/07 14:26:56 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,35 @@ int	set_chunk_pos(t_list **a)
 	return (0);
 }
 
+// void	push_chunk(t_list **a, t_list **b, int chunk_max)
+// {
+// 	t_node	*tmp_node;
+// 	size_t	index;
+
+// 	index = 0;
+// 	tmp_node = (*a)->head;
+// 	while (index < (*a)->lenght)
+// 	{
+// 		while (chunk_max <= (int)((*a)->lenght))
+// 		{
+// 			if (tmp_node->chunk_pos <= chunk_max)
+// 			{
+// 				//mettre le node en haut de a
+// 				while ((*a)->head != tmp_node)
+// 				{
+// 					if (tmp_node->pos <= (*a)->lenght / 2)
+// 						lrotate(a, RA);
+// 					else
+// 						lreverse(a, RRA)
+// 				}
+// 				//			fin
+// 				lpush(a, b, PB);
+// 			}
+// 			index++;
+// 		}
+// 	}
+// }
+
 void	lsort(t_list **a, t_list **b)
 {
 	int	chunk_max;
@@ -70,4 +99,5 @@ void	lsort(t_list **a, t_list **b)
 	}
 	(*b)->lenght = (*b)->lenght; //ONLY USED TO SILENCE THE WARNING "B ISN'T USED"
 	set_chunk_pos(a);
+	// push_chunk(a, b, chunk_max);
 }
