@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 16:27:18 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/08 12:01:42 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/11 16:25:31 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,28 +56,29 @@ int	set_chunk_pos(t_list **a)
 void	push_chunk(t_list **a, t_list **b, int chunk_max, int chunk_iter)
 {
 	t_node	*tmp_node;
-	size_t	index;
+	size_t	max_len;
+	int		chunk_filled;
+	int		index;
 
+	chunk_filled = 0;
+	max_len = (*a)->lenght;
 	index = 0;
-	tmp_node = (*a)->head;
-	while (index < (*a)->lenght)
+	while (index < (int)(*a)->lenght)
 	{
-		while ((int)index <= chunk_max)
+		while (chunk_filled <= chunk_max)
 		{
+			tmp_node = (*a)->head;
 			if (tmp_node->chunk_pos <= chunk_max)
 			{
-				printf("tmp:{%d}\n", tmp_node->data);
-				while ((*a)->head->data != tmp_node->data)
-				{
-					lrotate(a, RA);
-					printf("pa\n");
-				}
 				lpush(a, b, PB);
+				chunk_filled++;
+				index = 0;
 			}
-		index++;
-		tmp_node = tmp_node->next;
+			else
+				lrotate(a, RA);
+			index++;
 		}
-		if (chunk_max + 1 < (int)((*a)->lenght))
+		if (chunk_max + 1 < (int)(max_len))
 			chunk_max += chunk_iter;
 	}
 }
