@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 15:56:10 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/12 15:01:48 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/12 16:11:20 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ int	main(int argc, char **argv)
 			return (0);
 		}
 		choose_case(&stack);
+		free(stack.a);
+		free(stack.b);
 	}
 	//			AFFICHER LES STACKS EN LISTES CHAINEES
 		// t_node *iterator;

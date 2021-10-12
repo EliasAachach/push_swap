@@ -22,7 +22,7 @@ echo
 echo "PART 5: Another simple version"
 ARG="1 5 2 4 3"; ./push_swap $ARG | ./checker_linux $ARG
 ARG="1 5 2 4 3"; ./push_swap $ARG | wc -l
-ARG=`ruby -e "puts (1..5).to_a.shuffle.join(' ')"`; ./push_swap $ARG | ./checker_linux $ARG
+ARG=`ruby -e "puts (1..5).to_a.shuffle.join(' ')"`; echo $ARG; ./push_swap $ARG | ./checker_linux $ARG
 ./tester.sh 5
 echo
 echo "PART 6: Middle version"
