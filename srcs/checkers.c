@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 12:23:32 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/12 15:04:21 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/12 15:58:01 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,7 @@ void	check_args(int argc, char **argv)
 	{
 		check_int(argv[i]);
 		if (dup_check(argv, argv[i], i) == 1)
-		{
-			printf("prob ici\n{%s}", argv[i]);
 			error_prog(0);
-		}
 		i++;
 	}
 	
