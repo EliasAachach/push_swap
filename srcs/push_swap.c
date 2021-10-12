@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 15:56:10 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/05 16:27:52 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/12 15:01:48 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,18 +47,19 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	check_args(argc, argv);
-	if (argc > 100)
+	if (argc - 1 == 100 || argc - 1 == 500)
 	{
 		init_list(argv, &a, &b);
 		if (lcheck_sort(&a) == 0)
 		{
 			// args deja triés (rendu: il ne se passe rien, donc suppr le write)
-			write(1, "done\n", 5);
 			dellist(&a);
 			dellist(&b);
 			return (0);
 		}
 		lsort(&a, &b);
+		dellist(&a);
+		dellist(&b);
 	}
 	else
 	{
@@ -66,7 +67,6 @@ int	main(int argc, char **argv)
 		if (check_sort(&stack) == 0)
 		{
 			// args deja triés (rendu: il ne se passe rien, donc suppr le write)
-			write(1, "done\n", 5);
 			return (0);
 		}
 		choose_case(&stack);

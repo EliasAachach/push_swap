@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 17:46:31 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/08 11:43:53 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/12 14:26:36 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	lreverse(t_list **list, int move)
 	else if (move == RRB)
 		printf("rrb\n");
 }
+
 void	lrotate(t_list **list, int move)
 {
 	(*list)->head = (*list)->head->next;

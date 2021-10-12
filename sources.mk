@@ -24,6 +24,7 @@ SOURCES		+=                      		\
 		srcs/list/lsort.c              	\
 		srcs/list/lcheckers.c          	\
 		srcs/list/list_utils.c         	\
+		srcs/list/lsort_utils.c        	\
 
 
 ## SRCS/LIST/MOVES ##

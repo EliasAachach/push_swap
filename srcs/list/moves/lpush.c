@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 14:39:03 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/11 14:58:20 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/12 14:41:49 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ void	lpush(t_list **a, t_list **b, int move)
 		(*b)->head = del_element_top((*b)->head, b);
 		(*a)->head = add_head_list(a, tmp);
 		printf("pa\n");
+		if ((*b)->lenght == 0)
+			(*b)->tail = NULL;
 	}
 	else if (move == PB)
 	{
@@ -51,5 +53,7 @@ void	lpush(t_list **a, t_list **b, int move)
 		(*a)->head = del_element_top((*a)->head, a);
 		(*b)->head = add_head_list(b, tmp);
 		printf("pb\n");
+		if ((*a)->lenght == 0)
+			(*a)->tail = NULL;
 	}
 }

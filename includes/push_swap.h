@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 13:09:22 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/07 17:03:40 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/12 13:57:40 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ void	lpush(t_list **a, t_list **b, int move);
 void	lrotate(t_list **list, int move);
 t_node	*add_tail_list(t_list **list, int data);
 t_node	*add_head_list(t_list **list, int data);
+t_node	*find_highest(t_list **a, int *wich_count);
 t_list	*newlist(void);
 
 #endif
