@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/16 11:44:20 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/12 17:06:12 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/13 14:17:21 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,7 @@ void	five_move(t_stack *stack, int pos)
 
 	push(stack, PA);
 	tmp_sub = stack->sub_index_a;
-	// if (pos > stack->index_max_a / 2)
-	// {
-	// 	rev = 1;
-	// 	pos = stack->index_max_a - pos;
-	// }
-	// else
-		rev = 0;
+	rev = 0;
 	if (pos == stack->index_max_a)
 	{
 		rotate(stack, RA);
@@ -66,12 +60,41 @@ void	five_move(t_stack *stack, int pos)
 	stack->sub_index_a = tmp_sub;
 }
 
+void	min_to_top(t_stack *stack)
+{
+	int	i;
+	int	min;
+	int	index_min;
+
+	i = stack->sub_index_a;
+	min = stack->a[stack->sub_index_a];
+	while (i <= stack->index_max_a)
+	{
+		if (min > stack->a[i])
+		{
+			index_min = i;
+			min = stack->a[i];
+		}
+		i++;
+	}
+	while (stack->a[stack->sub_index_a] != min)
+	{
+		if (index_min > stack->index_max_a / 2)
+			reverse(stack, RRA);
+		else
+			rotate(stack, RA);
+	}
+}
+
 void	case_five(t_stack *stack)
 {
 	int pos;
 
 	while (stack->index_max_a - stack->sub_index_a > 2)
+	{
+		min_to_top(stack);
 		push(stack, PB);
+	}
 	case_three(stack);
 	while (stack->sub_index_b <= stack->index_max_b)
 	{
@@ -79,12 +102,6 @@ void	case_five(t_stack *stack)
 		five_move(stack, pos);
 	}
 }
-
- void	case_hundred(t_stack *stack)
- {
-	stack->index_max_a += 0;
-	return ;
- }
 
 void	choose_case(t_stack *stack)
 {
