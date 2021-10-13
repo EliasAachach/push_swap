@@ -38,6 +38,7 @@ SOURCES		+=                      		\
 
 SOURCES		+=                      		\
 		srcs/utils/utils.c             	\
+		srcs/utils/utils3.c            	\
 		srcs/utils/utils2.c            	\
 
 

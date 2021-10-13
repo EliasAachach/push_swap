@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 12:10:09 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/12 16:03:33 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/13 17:29:56 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	error_prog(int ret)
 
 int	ft_isdigit(int c)
 {
-	if ((c >= '0' && c <= '9') || c == '-')
+	if ((c >= '0' && c <= '9') || c == '-' || c == ' ')
 		return (1);
 	else
 		return (0);

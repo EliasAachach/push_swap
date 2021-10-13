@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 13:09:22 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/12 13:57:40 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/13 17:40:41 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,22 +56,6 @@ typedef	struct s_list
 	t_node	*tail;
 }				t_list;
 
-typedef	struct s_chunks
-{
-	int q1;
-	int q2;
-	int q3;
-	int q4;
-	int q5;
-	int q6;
-	int q7;
-	int q8;
-	int q9;
-	int q10;
-	int q11;
-}				t_chunks;
-
-
 int		error_prog(int ret);
 int		ft_strchr(const char *str, char *c);
 int		ft_isdigit(int c);
@@ -99,6 +83,7 @@ void	lreverse(t_list **list, int move);
 void	lpush(t_list **a, t_list **b, int move);
 void	lpush(t_list **a, t_list **b, int move);
 void	lrotate(t_list **list, int move);
+char	**ft_split(char const *s, char c);
 t_node	*add_tail_list(t_list **list, int data);
 t_node	*add_head_list(t_list **list, int data);
 t_node	*find_highest(t_list **a, int *wich_count);
