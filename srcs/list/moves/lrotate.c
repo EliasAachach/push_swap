@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 17:46:31 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/12 14:26:36 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/14 12:29:45 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void	lrotate(t_list **list, int move)
 	(*list)->tail = (*list)->tail->next;
 	if (move == RR)
 		printf("rr\n");
-	// else if (move == RA)
-		// printf("ra\n");
+	else if (move == RA)
+		printf("ra\n");
 	else if (move == RB)
 		printf("rb\n");
 }

@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 13:09:22 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/13 17:40:41 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/14 16:35:20 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,32 +61,33 @@ int		ft_strchr(const char *str, char *c);
 int		ft_isdigit(int c);
 int		ft_atoi(const char *str);
 int		ft_strlen(char *s);
-int		check_sort(t_stack *stack);
 int		wich_pos(t_stack *stack, int num);
-int		wich_case(t_stack *stack);
+int		wich_case(t_list **a);
 int		lcheck_sort(t_list **list);
 void	five_move(t_stack *stack, int pos);
 void	check_args(int argc, char **argv);
 void	set_stacks(int argc, char **argv, t_stack *stack);
-void	choose_case(t_stack *stack);
 void	ft_atoi_check(char *str);
 void	ft_putstr(char *str);
+char	**ft_split(char const *s, char c);
 void	rotate(t_stack *stack, int move);
 void	reverse(t_stack *stack, int move);
 void	push(t_stack *stack, int move);
 void	swap(t_stack *stack, int move);
-void	choose_case(t_stack *stack);
-void	case_three(t_stack *stack);
+void	choose_case(t_list **a, t_list **b);
+void	case_three(t_list **a);
 void	dellist(t_list **list);
 void	lsort(t_list **a, t_list **b);
 void	lreverse(t_list **list, int move);
 void	lpush(t_list **a, t_list **b, int move);
 void	lpush(t_list **a, t_list **b, int move);
 void	lrotate(t_list **list, int move);
-char	**ft_split(char const *s, char c);
+void	lswap(t_list **list, int move);
+void	free_split(char **array);
 t_node	*add_tail_list(t_list **list, int data);
 t_node	*add_head_list(t_list **list, int data);
 t_node	*find_highest(t_list **a, int *wich_count);
+t_node	*find_smallest(t_list **a, int *pos);
 t_list	*newlist(void);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 12:23:32 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/13 17:57:40 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/14 12:22:59 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,6 @@ int	dup_check( char **list, char *nbr, int imax)
 	while (i < imax)
 	{
 		if (int_nbr == ft_atoi(list[i]))
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-int	check_sort(t_stack *stack)
-{
-	int i;
-
-	i = stack->sub_index_a + 1;
-	while(i <= stack->index_max_a)
-	{
-		if (stack->a[i] <= stack->a[i - 1])
 			return (1);
 		i++;
 	}

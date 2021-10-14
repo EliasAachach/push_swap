@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 15:56:10 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/12 16:11:20 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/14 17:09:37 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,27 @@ void	init_stack(int argc, char **argv, t_stack *stack)
 void	init_list(char **argv, t_list **a, t_list **b)
 {
 	int i;
+	int	j;
+	char	**tmp;
 
 	i = 1;
 	*a = newlist();
 	*b = newlist();
 	while (argv[i])
 	{
-		add_tail_list(a, ft_atoi(argv[i]));
+		j = 0;
+		tmp = ft_split(argv[i], ' ');
+		while (tmp[j] != NULL)
+		{
+			add_tail_list(a, ft_atoi(tmp[j++]));
+		}
 		i++;
+		free_split(tmp);
 	}
 }
 
 int	main(int argc, char **argv)
 {
-	t_stack	stack;
 	t_list	*a;
 	t_list	*b;
 
@@ -63,38 +70,17 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
-		init_stack(argc, argv, &stack);
-		if (check_sort(&stack) == 0)
+		init_list(argv, &a, &b);
+		if (lcheck_sort(&a) == 0)
 		{
 			// args deja triés (rendu: il ne se passe rien, donc suppr le write)
+			dellist(&a);
+			dellist(&b);
 			return (0);
 		}
-		choose_case(&stack);
-		free(stack.a);
-		free(stack.b);
+		choose_case(&a, &b);
+		dellist(&a);
+		dellist(&b);
 	}
-	//			AFFICHER LES STACKS EN LISTES CHAINEES
-		// t_node *iterator;
-		// iterator = a->head;
-		// int i = 0;
-		// while (i < 100)
-		// {
-		// 	printf("value:%d\n", iterator->data);
-		// 	iterator = iterator->next;
-		// 	i++;
-		// }
-	// dellist(&a);
-	// dellist(&b);
-	//			AFFICHER LES STACKS EN INT*
-	// printf("STACK A :\n#%d#\n", stack.a[0]);
-	// printf("#%d#\n", stack.a[1]);
-	// printf("#%d#\n", stack.a[2]);
-	// printf("#%d#\n", stack.a[3]);
-	// printf("#%d#\n", stack.a[4]);
-	// printf("STACK B :\n.%d.\n", stack.b[0]);
-	// printf(".%d.\n", stack.b[1]);
-	// printf(".%d.\n", stack.b[2]);
-	// printf(".%d.\n", stack.b[3]);
-	// printf(".%d.\n", stack.b[4]);
-	// system ("leaks push_swap");
+	return (0);
 }

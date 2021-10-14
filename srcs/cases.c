@@ -6,115 +6,69 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/16 11:44:20 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/13 14:17:21 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/14 16:39:12 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	case_three(t_stack *stack)
+void	case_three(t_list **a)
 {
-	if (check_sort(stack) == 0)
+	if (lcheck_sort(a) == 0)
 		return ;
-	if (wich_case(stack) == 1)
-		swap(stack, SA);
-	else if (wich_case(stack) == 2)
+	if (wich_case(a) == 1)
+		lswap(a, SA);
+	else if (wich_case(a) == 2)
 	{
-		swap(stack, SA);
-		reverse(stack, RRA);
-		return ;
-	}
-	else if (wich_case(stack) == 3)
-		rotate(stack, RA);
-	else if (wich_case(stack) == 4)
-	{
-		swap(stack, SA);
-		rotate(stack, RA);
+		lswap(a, SA);
+		lreverse(a, RRA);
 		return ;
 	}
-	else if (wich_case(stack) == 5)
-		reverse(stack, RRA);
+	else if (wich_case(a) == 3)
+		lrotate(a, RA);
+	else if (wich_case(a) == 4)
+	{
+		lswap(a, SA);
+		lrotate(a, RA);
+		return ;
+	}
+	else if (wich_case(a) == 5)
+		lreverse(a, RRA);
 }
 
-void	five_move(t_stack *stack, int pos)
+void	case_five(t_list **a, t_list **b)
 {
-	int rev;
-	int tmp_sub;
-
-	push(stack, PA);
-	tmp_sub = stack->sub_index_a;
-	rev = 0;
-	if (pos == stack->index_max_a)
-	{
-		rotate(stack, RA);
-	}
-	else
-	{
-		while(pos > tmp_sub)
-		{
-			swap(stack, SA);
-			pos--;
-			stack->sub_index_a++;
-		}
-	}
-	stack->sub_index_a = tmp_sub;
-}
-
-void	min_to_top(t_stack *stack)
-{
-	int	i;
-	int	min;
-	int	index_min;
-
-	i = stack->sub_index_a;
-	min = stack->a[stack->sub_index_a];
-	while (i <= stack->index_max_a)
-	{
-		if (min > stack->a[i])
-		{
-			index_min = i;
-			min = stack->a[i];
-		}
-		i++;
-	}
-	while (stack->a[stack->sub_index_a] != min)
-	{
-		if (index_min > stack->index_max_a / 2)
-			reverse(stack, RRA);
-		else
-			rotate(stack, RA);
-	}
-}
-
-void	case_five(t_stack *stack)
-{
+	t_node *smallest;
 	int pos;
-
-	while (stack->index_max_a - stack->sub_index_a > 2)
+	
+	pos = 0;
+	while ((*a)->lenght > 2)
 	{
-		min_to_top(stack);
-		push(stack, PB);
+		smallest = find_smallest(a, &pos);
+		while ((*a)->head->data != smallest->data)
+		{
+			if (pos < (int)(*a)->lenght / 2)
+				lrotate(a, RA);
+			else
+				lreverse(a, RA);
+		}
+		lpush(a, b, PB);
 	}
-	case_three(stack);
-	while (stack->sub_index_b <= stack->index_max_b)
-	{
-		pos = wich_pos(stack, stack->b[stack->sub_index_b]);
-		five_move(stack, pos);
-	}
+	case_three(a);
+	while ((*b)->lenght > 0)
+		lpush(a, b, PA);
 }
 
-void	choose_case(t_stack *stack)
+void	choose_case(t_list **a, t_list **b)
 {
-	if (stack->index_max_a == 1)
+	if ((*a)->lenght == 2)
+		lswap(a, SA);
+	else if ((*a)->lenght == 3)
 	{
-		swap(stack, SA);
-	}
-	if (stack->index_max_a == 2)
-	{
-		case_three(stack);
+		case_three(a);
 	}
 	else
 	{
-		case_five(stack);
+		case_five(a, b);
 	}
 }

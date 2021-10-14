@@ -6,13 +6,13 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 16:27:18 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/12 15:35:19 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/14 16:35:43 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node	*find_smallest(t_list **a)
+t_node	*find_smallest(t_list **a, int *pos) 
 {
 	size_t	count;
 	t_node	*iter_node;
@@ -30,6 +30,7 @@ t_node	*find_smallest(t_list **a)
 		{
 			smallest_node = iter_node;
 			iter_node = (*a)->head;
+			*pos = (int)count;
 			count = 0;
 		}
 		else
@@ -46,7 +47,7 @@ int	set_chunk_pos(t_list **a)
 	index_chunk = 0;
 	while (index_chunk < (*a)->lenght)
 	{
-		smallest_node = find_smallest(a);
+		smallest_node = find_smallest(a, 0);
 		smallest_node->chunk_pos = index_chunk;
 		index_chunk++;
 	}

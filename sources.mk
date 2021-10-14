@@ -9,15 +9,6 @@ SOURCES		+=                      		\
 		srcs/checkers.c                	\
 
 
-## SRCS/MOVES ##
-
-SOURCES		+=                      		\
-		srcs/moves/rotate.c            	\
-		srcs/moves/reverse.c           	\
-		srcs/moves/swap.c              	\
-		srcs/moves/push.c              	\
-
-
 ## SRCS/LIST ##
 
 SOURCES		+=                      		\
@@ -31,6 +22,7 @@ SOURCES		+=                      		\
 
 SOURCES		+=                      		\
 		srcs/list/moves/lrotate.c      	\
+		srcs/list/moves/lswap.c        	\
 		srcs/list/moves/lpush.c        	\
 
 

@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 15:31:39 by elaachac          #+#    #+#             */
-/*   Updated: 2021/09/21 16:11:33 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/14 15:17:59 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,25 +29,24 @@ int	wich_pos(t_stack *stack, int num)
 	return (-1);
 }
 
-int	wich_case(t_stack *stack)
+int	wich_case(t_list **a)
 {
-	if ((stack->a[stack->sub_index_a] > stack->a[stack->sub_index_a + 1]\
-		&& stack->a[stack->sub_index_a] < stack->a[stack->sub_index_a + 2]))
+	if (((*a)->head->data > (*a)->head->next->data\
+		&& (*a)->head->data < (*a)->tail->data))
 		return (1);
-	if ((stack->a[stack->sub_index_a] > stack->a[stack->sub_index_a + 1]\
-		&& stack->a[stack->sub_index_a] > stack->a[stack->sub_index_a +2]) &&\
-		(stack->a[stack->sub_index_a + 1] > stack->a[stack->sub_index_a + 2]))
+	if (((*a)->head->data > (*a)->head->next->data\
+		&& (*a)->head->data > (*a)->tail->data) &&\
+		((*a)->head->next->data > (*a)->tail->data))
 		return (2);
-	if ((stack->a[stack->sub_index_a] > stack->a[stack->sub_index_a + 1]\
-		&& stack->a[stack->sub_index_a] > stack->a[stack->sub_index_a +2]) &&\
-		(stack->a[stack->sub_index_a + 1] < stack->a[stack->sub_index_a +2]))
+	if (((*a)->head->data > (*a)->head->next->data\
+		&& (*a)->head->data > (*a)->tail->data) &&\
+		((*a)->head->next->data < (*a)->tail->data))
 		return (3);
-	if ((stack->a[stack->sub_index_a] < stack->a[stack->sub_index_a + 1] &&\
-		stack->a[stack->sub_index_a] < stack->a[stack->sub_index_a + 2]))
+	if (((*a)->head->data < (*a)->head->next->data &&\
+		(*a)->head->data < (*a)->tail->data))
 		return (4);
-	if ((stack->a[stack->sub_index_a] < stack->a[stack->sub_index_a + 1] &&\
-		stack->a[stack->sub_index_a] > stack->a[stack->sub_index_a + 2]))
+	if (((*a)->head->data < (*a)->head->next->data &&\
+		(*a)->head->data > (*a)->tail->data))
 		return (5);
-	
 	return (0);
 }
