@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 12:30:27 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/15 17:52:16 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/18 15:00:25 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,13 @@
 
 void	lswap(t_list **list, int move)
 {
-	t_node *tmp;
+	t_node	*tmp;
 	int		data_tmp;
-	
+
 	tmp = (*list)->head->next;
 	data_tmp = tmp->data;
 	tmp->data = (*list)->head->data;
 	(*list)->head->data = data_tmp;
-
-	// tmp = (*list)->head->next;
-	// data_tmp = tmp->data;
-	// tmp->data = (*list)->head->data;
-	// (*list)->head->data = data_tmp;
-	// (*list)->head = (*list)->head->next;
-	// (*list)->head->next = tmp;
 	if (move == SA)
 		ft_putstr("sa\n");
 	else if (move == SB)

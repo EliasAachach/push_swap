@@ -67,13 +67,6 @@ all:  $(TARGETDIR)/$(TARGET)
 	@$(ECHO) "$(TARGET)\t\t[$(C_SUCCESS)✅$(C_RESET)]"
 	@$(ECHO) "$(C_SUCCESS)All done, compilation successful! 👌 $(C_RESET)"
 
-# Bonus rule
-bonus: CFLAGS += -DBONUS
-bonus: directories $(TARGETDIR)/$(TARGET_BONUS)
-	@$(ERASE)
-	@$(ECHO) "$(TARGET)\t\t[$(C_SUCCESS)✅$(C_RESET)]"
-	@$(ECHO) "$(C_SUCCESS)All done, compilation successful with bonus! 👌 $(C_RESET)"
-
 # Remake
 re: fclean all
 

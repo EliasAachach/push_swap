@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 14:39:03 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/15 17:59:07 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/18 15:00:44 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_node	*del_element_top(t_node *head, t_list **list)
 
 void	lpush(t_list **a, t_list **b, int move)
 {
-	int tmp;
+	int	tmp;
 
 	if (move == PA)
 	{

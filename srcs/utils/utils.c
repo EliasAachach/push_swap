@@ -6,13 +6,13 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 12:10:09 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/13 17:29:56 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/18 15:01:03 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ft_strchr(const char *str, char *c)
+int	ft_strchr(const char *str, char *c)
 {
 	while (*str)
 	{

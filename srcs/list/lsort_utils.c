@@ -6,11 +6,17 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 12:40:43 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/12 14:25:51 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/18 14:58:48 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	init_f_h(size_t *cnt, int **wich_move)
+{
+	*cnt = 0;
+	**wich_move = (int)*cnt;
+}
 
 t_node	*find_highest(t_list **b, int *wich_move)
 {
@@ -18,8 +24,7 @@ t_node	*find_highest(t_list **b, int *wich_move)
 	t_node	*iter_node;
 	t_node	*highest_node;
 
-	count = 0;
-	*wich_move = count;
+	init_f_h(&count, &wich_move);
 	iter_node = (*b)->head;
 	highest_node = iter_node;
 	while (count < (*b)->lenght)

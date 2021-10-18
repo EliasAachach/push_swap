@@ -6,13 +6,29 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 17:20:19 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/14 16:18:26 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/18 14:24:20 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void		*ft_strfree(char **str)
+void	ft_bzero(void *s, size_t n)
+{
+	size_t	i;
+	char	*str;
+
+	i = 0;
+	str = (char *)s;
+	if (n == 0)
+		return ;
+	while (i < n)
+	{
+		str[i] = '\0';
+		i++;
+	}
+}
+
+static void	*ft_strfree(char **str)
 {
 	int	i;
 
@@ -28,7 +44,7 @@ static void		*ft_strfree(char **str)
 	return ((void *)0);
 }
 
-static int		ft_nbwrds(char const *s, char c)
+static int	ft_nbwrds(char const *s, char c)
 {
 	int	i;
 	int	j;
@@ -51,28 +67,28 @@ static int		ft_nbwrds(char const *s, char c)
 	return (j);
 }
 
-static int		w(char const *s, int i, char c)
+static int	w(char const *s, int i, char c)
 {
 	while (s[i] != c && s[i])
 		i++;
 	return (i + 1);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**out;
 	int		i[3];
 
-	if ((ft_nbwrds(s, c) == -1)
-			|| !(out = (char **)malloc(sizeof(char *) * (ft_nbwrds(s, c) + 1))))
+	out = (char **)malloc(sizeof(char *) * (ft_nbwrds(s, c) + 1));
+	if ((ft_nbwrds(s, c) == -1) || !(out))
 		return (NULL);
-	i[0] = 0;
-	i[1] = 0;
+	ft_bzero(i, 3 * sizeof(int));
 	while (s[i[0]])
 	{
 		if (s[i[0]] != c)
 		{
-			if (!(out[i[1]] = (char *)malloc(sizeof(char) * w(s, i[0], c))))
+			out[i[1]] = (char *)malloc(sizeof(char) * w(s, i[0], c));
+			if (!(out[i[1]]))
 				return (ft_strfree(out));
 			i[2] = 0;
 			while (s[i[0]] != c && s[i[0]])

@@ -6,28 +6,16 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 15:56:10 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/15 17:56:22 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/18 14:34:14 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	init_stack(int argc, char **argv, t_stack *stack)
-{
-	int i;
-
-	i = 0;
-	set_stacks(argc, argv, stack);
-	stack->index_max_a = argc - 2;
-	stack->index_max_b = argc - 2;
-	stack->sub_index_a = 0;
-	stack->sub_index_b = argc - 1;
-}
-
 void	init_list(char **argv, t_list **a, t_list **b)
 {
-	int i;
-	int	j;
+	int		i;
+	int		j;
 	char	**tmp;
 
 	i = 1;
@@ -46,6 +34,21 @@ void	init_list(char **argv, t_list **a, t_list **b)
 	}
 }
 
+int	else_main(char **argv, t_list **a, t_list **b)
+{
+	init_list(argv, a, b);
+	if (lcheck_sort(a) == 0)
+	{
+		dellist(a);
+		dellist(b);
+		return (0);
+	}
+	choose_case(a, b);
+	dellist(a);
+	dellist(b);
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
 	t_list	*a;
@@ -59,7 +62,6 @@ int	main(int argc, char **argv)
 		init_list(argv, &a, &b);
 		if (lcheck_sort(&a) == 0)
 		{
-			// args deja triés (rendu: il ne se passe rien, donc suppr le write)
 			dellist(&a);
 			dellist(&b);
 			return (0);
@@ -69,18 +71,6 @@ int	main(int argc, char **argv)
 		dellist(&b);
 	}
 	else
-	{
-		init_list(argv, &a, &b);
-		if (lcheck_sort(&a) == 0)
-		{
-			// args deja triés (rendu: il ne se passe rien, donc suppr le write)
-			dellist(&a);
-			dellist(&b);
-			return (0);
-		}
-		choose_case(&a, &b);
-		dellist(&a);
-		dellist(&b);
-	}
+		else_main(argv, &a, &b);
 	return (0);
 }

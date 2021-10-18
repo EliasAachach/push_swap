@@ -6,11 +6,38 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 15:44:25 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/15 17:51:27 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/18 15:13:14 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+t_node	*find_smallest(t_list **a, int *pos)
+{
+	size_t	count;
+	t_node	*iter_node;
+	t_node	*smallest_node;
+
+	count = 0;
+	iter_node = (*a)->head;
+	smallest_node = iter_node;
+	while (smallest_node->chunk_pos != -1 && smallest_node->next != (*a)->head)
+		smallest_node = smallest_node->next;
+	while (count < (*a)->lenght)
+	{
+		iter_node = iter_node->next;
+		if (smallest_node->data > iter_node->data && iter_node->chunk_pos == -1)
+		{
+			smallest_node = iter_node;
+			iter_node = (*a)->head;
+			*pos = (int)count;
+			count = 0;
+		}
+		else
+			count++;
+	}
+	return (smallest_node);
+}
 
 void	free_split(char **array)
 {
@@ -18,18 +45,20 @@ void	free_split(char **array)
 
 	i = 0;
 	if (array && *array)
+	{
 		while (array[i] != NULL)
 		{
 			if (array[i])
 				free(array[i]);
 			i++;
 		}
+	}
 	free(array);
 }
 
 int	ft_strlen(char *s)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s[i])
@@ -40,26 +69,4 @@ int	ft_strlen(char *s)
 void	ft_putstr(char *str)
 {
 	write (1, str, ft_strlen(str));
-}
-
-void	set_stacks(int argc, char **argv, t_stack *stack)
-{
-	int i;
-	int	j;
-	char	**tmp;
-
-	i = 1;
-	stack->a = (int *)malloc(sizeof(int) * (argc - 1));
-	stack->b = (int *)malloc(sizeof(int) * (argc - 1));
-	while (argv[i])
-	{
-		tmp = ft_split(argv[i], ' ');
-		j = 0;
-		while (tmp[j] != NULL)
-		{
-			stack->a[i - 1] = ft_atoi(tmp[j++]);
-			i++;
-		}
-		free_split(tmp);
-	}
 }
