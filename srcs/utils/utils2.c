@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 15:44:25 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/13 18:08:13 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/15 17:51:27 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ void	set_stacks(int argc, char **argv, t_stack *stack)
 	while (argv[i])
 	{
 		tmp = ft_split(argv[i], ' ');
-		printf("{%s}\n", *tmp);
 		j = 0;
 		while (tmp[j] != NULL)
 		{

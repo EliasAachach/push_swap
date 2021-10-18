@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/16 11:44:20 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/14 16:39:12 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/15 18:00:02 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ void	case_five(t_list **a, t_list **b)
 {
 	t_node *smallest;
 	int pos;
-	
+
 	pos = 0;
-	while ((*a)->lenght > 2)
+	while ((*a)->lenght > 3)
 	{
 		smallest = find_smallest(a, &pos);
 		while ((*a)->head->data != smallest->data)
@@ -67,7 +67,7 @@ void	choose_case(t_list **a, t_list **b)
 	{
 		case_three(a);
 	}
-	else
+	else if((*a)->lenght > 3)
 	{
 		case_five(a, b);
 	}
