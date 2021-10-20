@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 12:23:32 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/20 15:19:47 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/20 16:16:36 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ void	check_args(int argc, char **argv)
 	int	i;
 
 	i = 1;
+	if (argc == 1)
+		exit (0);
 	if (argc < 2)
 		error_prog(0);
 	while (argv[i])
