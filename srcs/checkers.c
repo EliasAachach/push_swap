@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 12:23:32 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/18 14:41:32 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/20 15:19:47 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	check_int(char *char_nbr)
 	int	i;
 
 	i = 0;
-	ft_atoi_check(char_nbr);
 	while (char_nbr[i])
 	{
 		if (ft_isdigit(char_nbr[i]) == 0)

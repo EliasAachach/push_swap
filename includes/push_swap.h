@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 13:09:22 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/18 14:31:57 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/20 16:08:18 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ int		ft_atoi(const char *str);
 int		ft_strlen(char *s);
 int		wich_case(t_list **a);
 int		lcheck_sort(t_list **list);
+int		ft_atoi_check(char *str);
 void	check_args(int argc, char **argv);
-void	ft_atoi_check(char *str);
 void	ft_putstr(char *str);
 char	**ft_split(char const *s, char c);
 void	choose_case(t_list **a, t_list **b);

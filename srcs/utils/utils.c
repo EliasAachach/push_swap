@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 12:10:09 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/18 15:01:03 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/20 16:08:53 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	ft_isdigit(int c)
 		return (0);
 }
 
-void	ft_atoi_check(char *str)
+int	ft_atoi_check(char *str)
 {
 	unsigned int	i;
 	int				neg;
@@ -58,8 +58,9 @@ void	ft_atoi_check(char *str)
 		nb = nb * 10 + (str[i] - '0');
 		i++;
 	}
-	if (nb >= 2147483647)
-		error_prog(0);
+	if ((nb > 2147483648 && neg == -1) || (nb > 2147483647 && neg == 1))
+		return (1);
+	return (0);
 }
 
 int	ft_atoi(const char *str)

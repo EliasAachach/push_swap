@@ -6,7 +6,7 @@
 /*   By: elaachac <elaachac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 15:56:10 by elaachac          #+#    #+#             */
-/*   Updated: 2021/10/18 14:34:14 by elaachac         ###   ########.fr       */
+/*   Updated: 2021/10/20 16:12:21 by elaachac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ void	init_list(char **argv, t_list **a, t_list **b)
 		tmp = ft_split(argv[i], ' ');
 		while (tmp[j] != NULL)
 		{
+			if (ft_atoi_check(tmp[j]) == 1)
+			{
+				free_split(tmp);
+				error_prog(0);
+			}
 			add_tail_list(a, ft_atoi(tmp[j++]));
 		}
 		i++;
@@ -34,9 +39,8 @@ void	init_list(char **argv, t_list **a, t_list **b)
 	}
 }
 
-int	else_main(char **argv, t_list **a, t_list **b)
+int	else_main(t_list **a, t_list **b)
 {
-	init_list(argv, a, b);
 	if (lcheck_sort(a) == 0)
 	{
 		dellist(a);
@@ -57,9 +61,9 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	check_args(argc, argv);
-	if (argc - 1 == 100 || argc - 1 == 500)
+	init_list(argv, &a, &b);
+	if (a->lenght == 100 || a->lenght == 500)
 	{
-		init_list(argv, &a, &b);
 		if (lcheck_sort(&a) == 0)
 		{
 			dellist(&a);
@@ -71,6 +75,6 @@ int	main(int argc, char **argv)
 		dellist(&b);
 	}
 	else
-		else_main(argv, &a, &b);
+		else_main(&a, &b);
 	return (0);
 }
